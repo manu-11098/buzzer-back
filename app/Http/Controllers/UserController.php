@@ -22,4 +22,12 @@ class UserController extends Controller
     public function followings(User $user) {
         return $user->followings;
     }
+
+    public function toogleFollow(User $user) {
+        if (auth()->user()->followings->contains($user)) {
+            return auth()->user()->followings()->detach($user->id);
+        }
+
+        return auth()->user()->followings()->attach($user->id);
+    }
 }

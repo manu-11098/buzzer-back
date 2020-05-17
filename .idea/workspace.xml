@@ -12,7 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="14ea7e7f-dbe8-4c81-be91-6f0f73b65fe4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,6 +132,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -154,8 +155,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589718841184</updated>
-      <workItem from="1589718844336" duration="10233000" />
+      <workItem from="1589718844336" duration="11107000" />
     </task>
+    <task id="LOCAL-00001" summary="Añadida migration y métodos para recuperar los followers y followings del usuario logeado">
+      <created>1589733750718</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589733750718</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,5 +180,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Añadida migration y métodos para recuperar los followers y followings del usuario logeado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadida migration y métodos para recuperar los followers y followings del usuario logeado" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="444" y="83" key="CommitChangelistDialog2" timestamp="1589733750620">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="444" y="83" key="CommitChangelistDialog2/0.0.1920.1044@0.0.1920.1044" timestamp="1589733750620" />
   </component>
 </project>
