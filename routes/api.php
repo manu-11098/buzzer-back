@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
 
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function() {
+    Route::get('/user/{user?}', 'UserController@show');
+    Route::get('/user/{user}/followers', 'UserController@followers');
+    Route::get('/user/{user}/followings', 'UserController@followings');
 });

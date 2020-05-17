@@ -13,14 +13,25 @@ class User extends Authenticatable
     public $timestamps = false;
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'lastname', 'description', 'email', 'nickname', 'password'
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function getRouteKeyName()
+    {
+        return 'nickname';
+    }
+
+    public function followings()
+    {
+        return $this->belongsToMany(User::class, 'user_follow_user', 'user_id', 'follow_id');
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'user_follow_user', 'follow_id', 'user_id');
+    }
 }
