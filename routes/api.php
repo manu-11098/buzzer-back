@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +17,9 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
 
 Route::middleware('auth:sanctum')->group(function() {
-    Route::get('/user/{user?}', 'UserController@show');
     Route::put('/user', 'UserController@update');
+    Route::get('/user/search/{search?}', 'UserController@search');
+    Route::get('/user/{user?}', 'UserController@show');
     Route::get('/user/{user}/followers', 'UserController@followers');
     Route::get('/user/{user}/followings', 'UserController@followings');
     Route::post('/user/{user}/toogleFollow', 'UserController@toogleFollow');

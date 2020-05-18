@@ -47,6 +47,12 @@ class UserController extends Controller
         auth()->user()->save();
     }
 
+    public function search(String $search = '')
+    {
+        // TODO: This send the auth user, needs to remove o except
+        return User::where('nickname', 'LIKE', "%$search%")->get();
+    }
+
     public function followers(User $user)
     {
         return $user->followers;
