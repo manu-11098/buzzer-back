@@ -25,5 +25,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/user/{user}/toogleFollow', 'UserController@toogleFollow');
 
     Route::get('/buzz/feed', 'BuzzController@feed');
-    Route::get('/buzz/{user}', 'BuzzController@buzzsByUser');
+    Route::get('/buzz/searchByUser/{user}', 'BuzzController@buzzsByUser');
+    Route::get('/buzz/{buzz}', 'BuzzController@show');
+    Route::post('/buzz/{buzz}/toogleLike', 'BuzzController@toogleLike');
 });

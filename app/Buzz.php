@@ -18,4 +18,8 @@ class Buzz extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function likes() {
+        return $this->belongsToMany(Buzz::class, 'user_like_buzz', 'buzz_id', 'user_id');
+    }
 }
