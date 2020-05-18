@@ -25,6 +25,10 @@ class User extends Authenticatable
         return 'nickname';
     }
 
+    public function buzzs() {
+        return $this->hasMany(Buzz::class);
+    }
+
     public function followings()
     {
         return $this->belongsToMany(User::class, 'user_follow_user', 'user_id', 'follow_id');
