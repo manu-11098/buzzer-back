@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Buzz;
 use App\User;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class BuzzController extends Controller
 {
+    public function create(Request $request) {
+        $request->validate([
+            'body' => ['required', 'string', 'max:140']
+        ]);
+
+        auth()->user()->buzzs()->create($request->all());
+    }
+
     public function show(Buzz $buzz) {
         return $this->loadRelatedData($buzz);
     }
