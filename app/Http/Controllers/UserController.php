@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Buzz;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -17,6 +19,10 @@ class UserController extends Controller
 
         $user->followerCount = $user->followers()->count();
         $user->followingCount = $user->followings()->count();
+        $user->likeCount = DB::table('buzzs')
+                            ->join('user_like_buzz', 'buzzs.id', '=', 'user_like_buzz.buzz_id')
+                            ->where('buzzs.user_id', $user->id)
+                            ->count();
 
         return $user;
     }
