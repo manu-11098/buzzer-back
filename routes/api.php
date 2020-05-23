@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/register', 'Auth\RegisterController@register');
 Route::post('/logout', 'Auth\LoginController@logout');
+Route::post('/password-confirmation', 'Auth\ConfirmPasswordController@confirm');
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::put('/user', 'UserController@update');
