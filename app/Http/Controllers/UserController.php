@@ -18,10 +18,7 @@ class UserController extends Controller
 
         $user->followerCount = $user->followers()->count();
         $user->followingCount = $user->followings()->count();
-        $user->likeCount = DB::table('buzzs')
-                            ->join('user_like_buzz', 'buzzs.id', '=', 'user_like_buzz.buzz_id')
-                            ->where('buzzs.user_id', $user->id)
-                            ->count();
+        $user->likeCount = $this->likeCount($user);
 
         return $user;
     }
@@ -55,7 +52,13 @@ class UserController extends Controller
     public function search(String $search = '')
     {
         // TODO: This send the auth user, needs to remove o except
-        return User::where('nickname', 'LIKE', "%$search%")->get();
+        $users = User::where('nickname', 'LIKE', "%$search%")->get();
+
+        foreach ($users as $user) {
+            $user->likeCount = $this->likeCount($user);
+        }
+
+        return $users;
     }
 
     public function followers(User $user)
@@ -75,5 +78,12 @@ class UserController extends Controller
         }
 
         return auth()->user()->followings()->attach($user->id);
+    }
+
+    protected function likeCount(User $user) {
+        return DB::table('buzzs')
+                ->join('user_like_buzz', 'buzzs.id', '=', 'user_like_buzz.buzz_id')
+                ->where('buzzs.user_id', $user->id)
+                ->count();
     }
 }
