@@ -16,7 +16,7 @@ return [
     */
 
     'paths' => [
-        'sanctum/csrf-token',
+        'sanctum/csrf-cookie',
         'api/*'
     ],
 
