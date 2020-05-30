@@ -29,6 +29,7 @@ class UserControllerTest extends TestCase
         $response = $this->actingAs($user)->put('api/user/', $user->toArray());
 
         $response->assertStatus(200);
+        $this->assertDatabaseHas('users', ['name' => 'Test']);
     }
 
     /** @test */

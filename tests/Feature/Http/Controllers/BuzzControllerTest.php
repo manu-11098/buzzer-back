@@ -30,7 +30,6 @@ class BuzzControllerTest extends TestCase
         $response = $this->actingAs($user)->get('api/buzz/feed');
 
         $response->assertStatus(200);
-        $this->assertIsArray($response->content());
     }
 
     /** @test */

@@ -31,7 +31,7 @@ class RegisterControllerTest extends TestCase
     }
 
     /** @test */
-    public function login_displays_validation_errors()
+    public function register_displays_validation_errors()
     {
         $response = $this->post('api/register', []);
         $response->assertStatus(302);

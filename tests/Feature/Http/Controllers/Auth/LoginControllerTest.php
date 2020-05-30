@@ -27,7 +27,6 @@ class LoginControllerTest extends TestCase
     public function login_displays_validation_errors()
     {
         $response = $this->post('api/login', []);
-        $response->assertStatus(302);
         $response->assertSessionHasErrors(['email', 'password']);
     }
 }
