@@ -63,12 +63,24 @@ class UserController extends Controller
 
     public function followers(User $user)
     {
-        return $user->followers;
+        $followers = $user->followers;
+
+        foreach ($followers as $follower) {
+            $follower->likeCount = $this->likeCount($follower);
+        }
+
+        return $followers;
     }
 
     public function followings(User $user)
     {
-        return $user->followings;
+        $followings = $user->followings;
+
+        foreach ($followings as $following) {
+            $following->likeCount = $this->likeCount($following);
+        }
+
+        return $followings;
     }
 
     public function toogleFollow(User $user)
